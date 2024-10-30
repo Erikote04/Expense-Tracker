@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @AppStorage("isFirstTime") private var isFirstTime: Bool = true
+    
     @State private var activeTab: Tab = .recents
     
     var body: some View {
