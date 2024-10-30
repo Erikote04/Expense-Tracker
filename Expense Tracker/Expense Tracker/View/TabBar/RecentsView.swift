@@ -29,12 +29,15 @@ struct RecentsView: View {
                                     .foregroundStyle(.gray)
                             }
                             .horizontalSpacing(.leading)
+                            
+                            CardView(income: 1250, expense: 350)
                         } header: {
                             HeaderView(size)
                         }
                     }
                     .padding(16)
                 }
+                .background(.gray.opacity(0.15))
             }
         }
     }

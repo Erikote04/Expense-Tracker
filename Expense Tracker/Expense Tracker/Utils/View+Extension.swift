@@ -23,6 +23,13 @@ extension View {
         return formatter.string(from: date)
     }
     
+    func currency(_ value: Double, allowedDigits: Int = 2) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = allowedDigits
+        return formatter.string(from: .init(value: value)) ?? ""
+    }
+    
     @ViewBuilder
     func horizontalSpacing(_ alignment: Alignment = .center) -> some View {
         self.frame(maxWidth: .infinity, alignment: alignment)
