@@ -13,25 +13,25 @@ struct HomeView: View {
     
     var body: some View {
         TabView(selection: $activeTab) {
-            Text("Recents")
+            RecentsView()
                 .tag(Tab.recents)
                 .tabItem {
                     Tab.recents.tabLabel
                 }
             
-            Text("Search")
+            SearchView()
                 .tag(Tab.search)
                 .tabItem {
                     Tab.search.tabLabel
                 }
             
-            Text("Charts")
+            ChartsView()
                 .tag(Tab.charts)
                 .tabItem {
                     Tab.charts.tabLabel
                 }
             
-            Text("Settings")
+            SettingsView()
                 .tag(Tab.settings)
                 .tabItem {
                     Tab.settings.tabLabel
