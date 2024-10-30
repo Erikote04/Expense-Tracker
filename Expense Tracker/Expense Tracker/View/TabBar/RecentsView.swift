@@ -9,7 +9,21 @@ import SwiftUI
 
 struct RecentsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader {
+            let size = $0.size
+            
+            NavigationStack {
+                ScrollView(.vertical) {
+                    LazyVStack(spacing: 8, pinnedViews: [.sectionHeaders]) {
+                        Section {
+                            
+                        } header: {
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
