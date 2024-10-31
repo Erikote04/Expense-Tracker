@@ -162,5 +162,5 @@ struct RecentsView: View {
 }
 
 #Preview {
-    RecentsView()
+    HomeView()
 }

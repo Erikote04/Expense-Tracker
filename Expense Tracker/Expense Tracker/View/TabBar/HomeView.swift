@@ -38,6 +38,7 @@ struct HomeView: View {
                     Tab.settings.tabLabel
                 }
         }
+        .tint(appTint)
         .sheet(isPresented: $isFirstTime) {
             FirstTimeExperienceView()
                 .interactiveDismissDisabled()
