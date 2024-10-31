@@ -12,6 +12,7 @@ struct RecentsView: View {
     
     @State private var startDate: Date = .now.startOfMonth
     @State private var endDate: Date = .now.endOfMonth
+    @State private var isShowingDateFilter: Bool = false
     @State private var selectedCategory: Category = .expense
     
     @Namespace private var animation
@@ -25,7 +26,7 @@ struct RecentsView: View {
                     LazyVStack(spacing: 8, pinnedViews: [.sectionHeaders]) {
                         Section {
                             Button {
-                                
+                                isShowingDateFilter = true
                             } label: {
                                 Text("\(format(date: startDate, format: "dd MMM yy")) to \(format(date: endDate, format: "dd MMM yy"))")
                                     .font(.caption2)
@@ -38,7 +39,7 @@ struct RecentsView: View {
                             CustomSegmentedControl()
                                 .padding(.bottom, 8)
                             
-                            ForEach(sampleTransactions.filter { $0.category == selectedCategory.rawValue }) { transaction in 
+                            ForEach(sampleTransactions.filter { $0.category == selectedCategory.rawValue }) { transaction in
                                 TransactionCardView(transaction: transaction)
                             }
                         } header: {
@@ -48,7 +49,27 @@ struct RecentsView: View {
                     .padding(16)
                 }
                 .background(.gray.opacity(0.15))
+                .blur(radius: isShowingDateFilter ? 8 : 0)
+                .disabled(isShowingDateFilter)
+                .onTapGesture {
+                    if isShowingDateFilter {
+                        isShowingDateFilter = false
+                    }
+                }
             }
+            .overlay {
+                if isShowingDateFilter {
+                    DateFilterView(start: startDate, end: endDate) { start, end in
+                        startDate = start
+                        endDate = end
+                        isShowingDateFilter = false
+                    } onClose: {
+                        isShowingDateFilter = false
+                    }
+                    .transition(.move(edge: .leading))
+                }
+            }
+            .animation(.snappy, value: isShowingDateFilter)
         }
     }
     
