@@ -15,7 +15,7 @@ struct HomeView: View {
     @State private var activeTab: Tab = .recents
     
     var body: some View {
-        LockView(lockType: .both, lockPin: "1234", isEnabled: isAppLockEnabled) {
+        LockView(lockType: .both, lockPin: "1234", isEnabled: isAppLockEnabled, isAppLockInBackground: isAppLockInBackground) {
             TabView(selection: $activeTab) {
                 RecentsView()
                     .tag(Tab.recents)
