@@ -93,7 +93,7 @@ struct RecentsView: View {
             Spacer(minLength: 0)
             
             NavigationLink {
-                
+                AddTransactionView()
             } label: {
                 Image(systemName: "plus")
                     .font(.title3)

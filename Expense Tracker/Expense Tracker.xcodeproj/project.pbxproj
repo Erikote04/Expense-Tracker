@@ -10,22 +10,9 @@
 		BB4472AF2CD2C1D80022BCF8 /* Expense Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		BB4472EE2CD3C22F0022BCF8 /* Exceptions for "Expense Tracker" folder in "Expense Tracker" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Expense-Tracker-Info.plist",
-			);
-			target = BB4472AE2CD2C1D80022BCF8 /* Expense Tracker */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BB4472B12CD2C1D80022BCF8 /* Expense Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				BB4472EE2CD3C22F0022BCF8 /* Exceptions for "Expense Tracker" folder in "Expense Tracker" target */,
-			);
 			path = "Expense Tracker";
 			sourceTree = "<group>";
 		};
