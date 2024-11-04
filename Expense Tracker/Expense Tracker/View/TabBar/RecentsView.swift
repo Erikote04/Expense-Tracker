@@ -5,10 +5,13 @@
 //  Created by Erik Sebastian de Erice Jerez on 30/10/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct RecentsView: View {
     @AppStorage("userName") private var userName: String = ""
+    
+    @Query(sort: [SortDescriptor(\Transaction.date, order: .reverse)], animation: .snappy) private var transactions: [Transaction]
     
     @State private var startDate: Date = .now.startOfMonth
     @State private var endDate: Date = .now.endOfMonth
@@ -39,7 +42,9 @@ struct RecentsView: View {
                             CustomSegmentedControl()
                                 .padding(.bottom, 8)
                             
-                            //                            TransactionCardView(transaction: transaction)
+                            ForEach(transactions) {
+                                TransactionCardView(transaction: $0)
+                            }
                         } header: {
                             HeaderView(size)
                         }
