@@ -55,12 +55,17 @@ struct AddTransactionView: View {
                         .horizontalSpacing(.leading)
                     
                     HStack(spacing: 16) {
-                        TextField("0.0", value: $amount, formatter: numberFormatter)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 12)
-                            .background(.background, in: .rect(cornerRadius: 8))
-                            .frame(maxWidth: 128)
-                            .keyboardType(.decimalPad)
+                        HStack(spacing: 4) {
+                            Text(currencySymbol)
+                                .font(.callout.bold())
+                            
+                            TextField("0.0", value: $amount, formatter: numberFormatter)
+                                .keyboardType(.decimalPad)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
+                        .background(.background, in: .rect(cornerRadius: 8))
+                        .frame(maxWidth: 128)
                         
                         Checkbox()
                     }
@@ -81,7 +86,8 @@ struct AddTransactionView: View {
             }
             .padding(16)
         }
-        .navigationTitle("Add Transaction")
+        .navigationTitle("\(editTransaction == nil ? "Add" : "Edit") Transaction")
+        .navigationBarTitleDisplayMode(.inline)
         .background(.gray.opacity(0.15))
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
