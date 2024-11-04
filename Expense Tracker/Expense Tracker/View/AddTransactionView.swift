@@ -16,8 +16,9 @@ struct AddTransactionView: View {
     @State private var amount: Double = .zero
     @State private var date: Date = .now
     @State private var category: Category = .expense
+    @State private var tint: TintColor = tints.randomElement()!
     
-    var tint: TintColor = tints.randomElement()!
+    var editTransaction: Transaction?
     
     var numberFormatter: NumberFormatter {
         let formatter = NumberFormatter()
@@ -87,19 +88,44 @@ struct AddTransactionView: View {
                 Button("Save", action: save)
             }
         }
+        .onAppear {
+            if let editTransaction {
+                title = editTransaction.title
+                remarks = editTransaction.remarks
+                amount = editTransaction.amount
+                date = editTransaction.date
+                
+                if let category = editTransaction.rawCategory {
+                    self.category = category
+                }
+                
+                if let tint = editTransaction.tint {
+                    self.tint = tint
+                }
+            }
+        }
     }
     
     func save() {
-        let transaction = Transaction(
-            title: title,
-            remarks: remarks,
-            amount: amount,
-            date: date,
-            category: category,
-            tintColor: tint
-        )
+        if editTransaction != nil {
+            editTransaction?.title = title
+            editTransaction?.remarks = remarks
+            editTransaction?.amount = amount
+            editTransaction?.date = date
+            editTransaction?.category = category.rawValue
+        } else {
+            let transaction = Transaction(
+                title: title,
+                remarks: remarks,
+                amount: amount,
+                date: date,
+                category: category,
+                tintColor: tint
+            )
+            
+            context.insert(transaction)
+        }
         
-        context.insert(transaction)
         dismiss()
     }
     

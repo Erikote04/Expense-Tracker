@@ -42,8 +42,13 @@ struct RecentsView: View {
                             CustomSegmentedControl()
                                 .padding(.bottom, 8)
                             
-                            ForEach(transactions) {
-                                TransactionCardView(transaction: $0)
+                            ForEach(transactions) { transaction in
+                                NavigationLink {
+                                    AddTransactionView(editTransaction: transaction)
+                                } label: {
+                                    TransactionCardView(transaction: transaction)
+                                }
+                                .buttonStyle(.plain)
                             }
                         } header: {
                             HeaderView(size)
