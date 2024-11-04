@@ -113,7 +113,6 @@ struct LockView<Content: View>: View {
                     } completion: {
                         pin = ""
                     }
-
                 }
             }
             
