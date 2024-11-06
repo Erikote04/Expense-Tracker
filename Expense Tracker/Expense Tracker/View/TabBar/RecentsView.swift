@@ -11,8 +11,6 @@ import SwiftUI
 struct RecentsView: View {
     @AppStorage("userName") private var userName: String = ""
     
-    @Query(sort: [SortDescriptor(\Transaction.date, order: .reverse)], animation: .snappy) private var transactions: [Transaction]
-    
     @State private var startDate: Date = .now.startOfMonth
     @State private var endDate: Date = .now.endOfMonth
     @State private var isShowingDateFilter: Bool = false
@@ -37,18 +35,21 @@ struct RecentsView: View {
                             }
                             .horizontalSpacing(.leading)
                             
-                            CardView(income: 1250, expense: 350)
-                            
-                            CustomSegmentedControl()
-                                .padding(.bottom, 8)
-                            
-                            ForEach(transactions) { transaction in
-                                NavigationLink {
-                                    AddTransactionView(editTransaction: transaction)
-                                } label: {
-                                    TransactionCardView(transaction: transaction)
+                            FilterTransactionsView(startDate: startDate, endDate: endDate) { transactions in
+                                CardView(
+                                    income: total(transactions, category: .income),
+                                    expense: total(transactions, category: .expense)
+                                )
+                                
+                                CustomSegmentedControl()
+                                    .padding(.bottom, 8)
+                                
+                                ForEach(transactions.filter { $0.category == selectedCategory.rawValue }) { transaction in
+                                    NavigationLink(value: transaction) {
+                                        TransactionCardView(transaction: transaction)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
-                                .buttonStyle(.plain)
                             }
                         } header: {
                             HeaderView(size)
@@ -59,6 +60,9 @@ struct RecentsView: View {
                 .background(.gray.opacity(0.15))
                 .blur(radius: isShowingDateFilter ? 8 : 0)
                 .disabled(isShowingDateFilter)
+                .navigationDestination(for: Transaction.self) { transaction in
+                    AddTransactionView(editTransaction: transaction)
+                }
                 .onTapGesture {
                     if isShowingDateFilter {
                         isShowingDateFilter = false
