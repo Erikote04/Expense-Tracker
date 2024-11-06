@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TransactionCardView: View {
     let transaction: Transaction
+    var isShowingCategory: Bool = false
     
     var body: some View {
         HStack(spacing: 12) {
@@ -30,6 +31,19 @@ struct TransactionCardView: View {
                 Text(format(date: transaction.date, format: "dd MMM yyyy"))
                     .font(.caption2)
                     .foregroundStyle(.gray)
+                
+                if isShowingCategory {
+                    Text(transaction.category)
+                        .font(.caption2)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 2)
+                        .foregroundStyle(.white)
+                        .background(
+                            transaction.category == Category.income.rawValue ?
+                            Color.green.gradient : Color.red.gradient,
+                            in: .capsule
+                        )
+                }
             }
             .lineLimit(1)
             .horizontalSpacing(.leading)
