@@ -80,19 +80,6 @@ struct GraphsView: View {
         .chartForegroundStyleScale(range: [Color.green.gradient, Color.red.gradient])
     }
     
-    @ViewBuilder
-    private func createBarMarks(for group: ChartGroup) -> some ChartContent {
-        ForEach(group.categories) { chart in
-            BarMark(
-                x: .value("Month", format(date: group.date, format: "MMM yy")),
-                y: .value(chart.category.rawValue, chart.totalValue),
-                width: 20
-            )
-            .position(by: .value("Category", chart.category.rawValue), axis: .horizontal)
-            .foregroundStyle(by: .value("Category", chart.category.rawValue))
-        }
-    }
-    
     func createChartGroups() {
         Task.detached(priority: .high) {
             let calendar = Calendar.current
