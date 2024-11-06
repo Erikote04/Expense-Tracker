@@ -29,7 +29,7 @@ struct HomeView: View {
                         Tab.search.tabLabel
                     }
                 
-                ChartsView()
+                GraphsView()
                     .tag(Tab.charts)
                     .tabItem {
                         Tab.charts.tabLabel
