@@ -56,7 +56,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Model/Category.swift,
-				Model/TintColor.swift,
 				Model/Transaction.swift,
 				Utils/Constants.swift,
 				"Utils/Date+Extension.swift",

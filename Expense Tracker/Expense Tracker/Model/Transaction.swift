@@ -17,13 +17,13 @@ class Transaction {
     var category: String
     var tintColor: String
     
-    init(title: String, remarks: String, amount: Double, date: Date, category: Category, tintColor: TintColor) {
+    init(title: String, remarks: String, amount: Double, date: Date, category: Category) {
         self.title = title
         self.remarks = remarks
         self.amount = amount
         self.date = date
         self.category = category.rawValue
-        self.tintColor = tintColor.color
+        self.tintColor = category == .income ? "green" : "red"
     }
     
     @Transient
@@ -33,11 +33,6 @@ class Transaction {
     
     @Transient
     var color: Color {
-        tints.first(where: { $0.color == tintColor })?.value ?? appTint
-    }
-    
-    @Transient
-    var tint: TintColor? {
-        tints.first(where: { $0.color == tintColor })
+        rawCategory == .income ? .green : .red
     }
 }

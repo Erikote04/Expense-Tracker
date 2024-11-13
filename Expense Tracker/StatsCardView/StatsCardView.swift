@@ -59,8 +59,8 @@ struct StatsCardView: Widget {
         }
         .supportedFamilies([.systemMedium])
         .contentMarginsDisabled()
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Expense Tracker")
+        .description("View your monthly account balance quickly")
     }
 }
 

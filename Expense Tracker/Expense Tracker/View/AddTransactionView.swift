@@ -17,7 +17,6 @@ struct AddTransactionView: View {
     @State private var amount: Double = .zero
     @State private var date: Date = .now
     @State private var category: Category = .expense
-    @State private var tint: TintColor = tints.randomElement()!
     
     var editTransaction: Transaction?
     
@@ -41,8 +40,7 @@ struct AddTransactionView: View {
                     remarks: remarks.isEmpty ? "Remarks" : remarks,
                     amount: amount,
                     date: date,
-                    category: category,
-                    tintColor: tint
+                    category: category
                 ))
                 
                 CustomSection("Title", "Transaction Title", value: $title)
@@ -105,10 +103,6 @@ struct AddTransactionView: View {
                 if let category = editTransaction.rawCategory {
                     self.category = category
                 }
-                
-                if let tint = editTransaction.tint {
-                    self.tint = tint
-                }
             }
         }
     }
@@ -126,8 +120,7 @@ struct AddTransactionView: View {
                 remarks: remarks,
                 amount: amount,
                 date: date,
-                category: category,
-                tintColor: tint
+                category: category
             )
             
             context.insert(transaction)
