@@ -68,13 +68,15 @@ struct GraphsView: View {
         .chartScrollableAxes(.horizontal)
         .chartXVisibleDomain(length: 4)
         .chartLegend(position: .bottom, alignment: .trailing)
-        .chartYAxis { value in
-            let doubleValue = value.as(Double.self) ?? 0
-            
-            AxisGridLine()
-            AxisTick()
-            AxisMark(position: .leading) {
-                Text(axisLabel(doubleValue))
+        .chartYAxis {
+            AxisMarks(position: .leading) { value in
+                let doubleValue = value.as(Double.self) ?? 0
+                
+                AxisGridLine()
+                AxisTick()
+                AxisValueLabel {
+                    Text("\(doubleValue)")
+                }
             }
         }
         .chartForegroundStyleScale(range: [Color.green.gradient, Color.red.gradient])
@@ -84,7 +86,7 @@ struct GraphsView: View {
         Task.detached(priority: .high) {
             let calendar = Calendar.current
             
-            let groupedDate = Dictionary(grouping: transactions) { transaction in
+            let groupedDate = await Dictionary(grouping: transactions) { transaction in
                 return calendar.dateComponents([.month, .year], from: transaction.date)
             }
             
@@ -100,7 +102,7 @@ struct GraphsView: View {
                 let income = dict.value.filter { $0.category == Category.income.rawValue }
                 let expense = dict.value.filter { $0.category == Category.expense.rawValue }
                 let incomeTotalValue = total(income, category: .income)
-                let expenseTotalValue = total(expense, category: .income)
+                let expenseTotalValue = total(expense, category: .expense)
                 
                 return .init(
                     date: date,
