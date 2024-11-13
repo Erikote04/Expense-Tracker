@@ -6,19 +6,96 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BB2218852CE52D2B00120FA3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB2218842CE52D2B00120FA3 /* WidgetKit.framework */; };
+		BB2218872CE52D2B00120FA3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB2218862CE52D2B00120FA3 /* SwiftUI.framework */; };
+		BB2218922CE52D2C00120FA3 /* StatsCardViewExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BB2218822CE52D2B00120FA3 /* StatsCardViewExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB2218902CE52D2C00120FA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB4472A72CD2C1D80022BCF8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB2218812CE52D2B00120FA3;
+			remoteInfo = StatsCardViewExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB2218932CE52D2C00120FA3 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BB2218922CE52D2C00120FA3 /* StatsCardViewExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		BB2218822CE52D2B00120FA3 /* StatsCardViewExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StatsCardViewExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB2218842CE52D2B00120FA3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		BB2218862CE52D2B00120FA3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		BB4472AF2CD2C1D80022BCF8 /* Expense Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BB2218962CE52D2C00120FA3 /* Exceptions for "StatsCardView" folder in "StatsCardViewExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BB2218812CE52D2B00120FA3 /* StatsCardViewExtension */;
+		};
+		BB2218992CE52EBB00120FA3 /* Exceptions for "Expense Tracker" folder in "StatsCardViewExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Model/Category.swift,
+				Model/TintColor.swift,
+				Model/Transaction.swift,
+				Utils/Constants.swift,
+				"Utils/Date+Extension.swift",
+				"Utils/View+Extension.swift",
+				View/Components/CardView.swift,
+				View/Components/FilterTransactionsView.swift,
+			);
+			target = BB2218812CE52D2B00120FA3 /* StatsCardViewExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		BB2218882CE52D2B00120FA3 /* StatsCardView */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BB2218962CE52D2C00120FA3 /* Exceptions for "StatsCardView" folder in "StatsCardViewExtension" target */,
+			);
+			path = StatsCardView;
+			sourceTree = "<group>";
+		};
 		BB4472B12CD2C1D80022BCF8 /* Expense Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BB2218992CE52EBB00120FA3 /* Exceptions for "Expense Tracker" folder in "StatsCardViewExtension" target */,
+			);
 			path = "Expense Tracker";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BB22187F2CE52D2B00120FA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2218872CE52D2B00120FA3 /* SwiftUI.framework in Frameworks */,
+				BB2218852CE52D2B00120FA3 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BB4472AC2CD2C1D80022BCF8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +106,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB2218832CE52D2B00120FA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB2218842CE52D2B00120FA3 /* WidgetKit.framework */,
+				BB2218862CE52D2B00120FA3 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BB4472A62CD2C1D80022BCF8 = {
 			isa = PBXGroup;
 			children = (
 				BB4472B12CD2C1D80022BCF8 /* Expense Tracker */,
+				BB2218882CE52D2B00120FA3 /* StatsCardView */,
+				BB2218832CE52D2B00120FA3 /* Frameworks */,
 				BB4472B02CD2C1D80022BCF8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				BB4472AF2CD2C1D80022BCF8 /* Expense Tracker.app */,
+				BB2218822CE52D2B00120FA3 /* StatsCardViewExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +137,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BB2218812CE52D2B00120FA3 /* StatsCardViewExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB2218972CE52D2C00120FA3 /* Build configuration list for PBXNativeTarget "StatsCardViewExtension" */;
+			buildPhases = (
+				BB22187E2CE52D2B00120FA3 /* Sources */,
+				BB22187F2CE52D2B00120FA3 /* Frameworks */,
+				BB2218802CE52D2B00120FA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BB2218882CE52D2B00120FA3 /* StatsCardView */,
+			);
+			name = StatsCardViewExtension;
+			packageProductDependencies = (
+			);
+			productName = StatsCardViewExtension;
+			productReference = BB2218822CE52D2B00120FA3 /* StatsCardViewExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		BB4472AE2CD2C1D80022BCF8 /* Expense Tracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB4472BD2CD2C1D90022BCF8 /* Build configuration list for PBXNativeTarget "Expense Tracker" */;
@@ -55,10 +166,12 @@
 				BB4472AB2CD2C1D80022BCF8 /* Sources */,
 				BB4472AC2CD2C1D80022BCF8 /* Frameworks */,
 				BB4472AD2CD2C1D80022BCF8 /* Resources */,
+				BB2218932CE52D2C00120FA3 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BB2218912CE52D2C00120FA3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				BB4472B12CD2C1D80022BCF8 /* Expense Tracker */,
@@ -80,6 +193,9 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					BB2218812CE52D2B00120FA3 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					BB4472AE2CD2C1D80022BCF8 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -100,11 +216,19 @@
 			projectRoot = "";
 			targets = (
 				BB4472AE2CD2C1D80022BCF8 /* Expense Tracker */,
+				BB2218812CE52D2B00120FA3 /* StatsCardViewExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BB2218802CE52D2B00120FA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BB4472AD2CD2C1D80022BCF8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +239,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BB22187E2CE52D2B00120FA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BB4472AB2CD2C1D80022BCF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +255,69 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BB2218912CE52D2C00120FA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB2218812CE52D2B00120FA3 /* StatsCardViewExtension */;
+			targetProxy = BB2218902CE52D2C00120FA3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		BB2218942CE52D2C00120FA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MH58XUKFCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StatsCardView/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StatsCardView;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vasscompany.Expense-Tracker.StatsCardView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB2218952CE52D2C00120FA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MH58XUKFCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StatsCardView/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StatsCardView;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vasscompany.Expense-Tracker.StatsCardView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BB4472BB2CD2C1D90022BCF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -311,6 +504,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BB2218972CE52D2C00120FA3 /* Build configuration list for PBXNativeTarget "StatsCardViewExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2218942CE52D2C00120FA3 /* Debug */,
+				BB2218952CE52D2C00120FA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BB4472AA2CD2C1D80022BCF8 /* Build configuration list for PBXProject "Expense Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
